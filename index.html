@@ -1,190 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quran Recitation — Mishary Rashid Alafasy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Quran Recitation — TajwidHub</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+*{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      min-height: auto;
-      font-family: system-ui, sans-serif;
-      background: #080b12;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-    }
-
-    .player {
-      width: 100%;
-      max-width: 520px;
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 24px;
-      background: rgba(20,24,34,.92);
-      box-shadow: 0 20px 60px rgba(0,0,0,.45);
-    }
-
-    .label {
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: .55;
-    }
-
-    h1 {
-      margin: 8px 0 4px;
-      font-size: 28px;
-    }
-
-    .reciter {
-      opacity: .65;
-      margin-bottom: 25px;
-    }
-
-    select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: #111722;
-      color: white;
-      font-size: 16px;
-      margin-bottom: 25px;
-    }
-
-    .surah {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    .progress {
-      width: 100%;
-    }
-
-    input[type="range"] {
-      width: 100%;
-      accent-color: #fff;
-    }
-
-    .times {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      opacity: .55;
-    }
-
-    .controls {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
-      margin-top: 25px;
-    }
-
-    button {
-      width: 52px;
-      height: 52px;
-      border: 0;
-      border-radius: 50%;
-      background: #202735;
-      color: white;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    button.play {
-      width: 68px;
-      height: 68px;
-      font-size: 25px;
-      background: white;
-      color: #080b12;
-    }
-
-    button:active {
-      transform: scale(.94);
-    }
-
-    .status {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 12px;
-      opacity: .5;
-    }
-.watermark {
-  text-align: center;
-  margin-top: 18px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  opacity: .28;
-  font-weight: 600;
+body{
+  margin:0;
+  min-height:100vh;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#080b12;
+  color:#fff;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-  </style>
+
+.player{
+  width:100%;
+  max-width:520px;
+  padding:24px 22px 16px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;
+  background:rgba(20,24,34,.96);
+  box-shadow:0 18px 55px rgba(0,0,0,.45);
+}
+
+.label{
+  font-size:11px;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  opacity:.5;
+}
+
+h1{
+  margin:5px 0 2px;
+  font-size:30px;
+  line-height:1.15;
+}
+
+.reciter{
+  font-size:13px;
+  opacity:.58;
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  margin:10px 0 6px;
+  font-size:11px;
+  opacity:.5;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+select{
+  width:100%;
+  padding:12px 13px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:11px;
+  background:#111722;
+  color:#fff;
+  font-size:15px;
+  outline:none;
+}
+
+.surah{
+  margin-top:20px;
+  margin-bottom:10px;
+  font-size:19px;
+  font-weight:600;
+}
+
+input[type=range]{
+  width:100%;
+  accent-color:#fff;
+}
+
+.times{
+  display:flex;
+  justify-content:space-between;
+  margin-top:2px;
+  font-size:11px;
+  opacity:.48;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin-top:20px;
+}
+
+button{
+  width:48px;
+  height:48px;
+  border:0;
+  border-radius:50%;
+  background:#202735;
+  color:#fff;
+  font-size:21px;
+  cursor:pointer;
+}
+
+button.play{
+  width:62px;
+  height:62px;
+  background:#fff;
+  color:#080b12;
+  font-size:23px;
+}
+
+button:active{
+  transform:scale(.94);
+}
+
+.status{
+  min-height:17px;
+  margin-top:13px;
+  text-align:center;
+  font-size:11px;
+  opacity:.48;
+}
+
+.watermark{
+  margin-top:13px;
+  text-align:center;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:600;
+  opacity:.25;
+}
+</style>
 </head>
 
 <body>
 
-  <main class="player">
+<main class="player">
 
-    <div class="label">Full Surah Streaming</div>
+  <div class="label">Quran Recitation</div>
 
-    <h1>Quran Recitations</h1>
+  <h1>Quran Recitation</h1>
 
-    <div class="reciter">
-      Mishary Rashid Alafasy
-    </div>
+  <div class="reciter" id="reciterName">
+    Mishary Rashid Alafasy
+  </div>
 
-    <select id="surahSelect">
-      <option>Loading Surahs...</option>
-    </select>
+  <label for="reciterSelect">Reciter</label>
 
-    <div class="surah" id="surahTitle">
-      Select a Surah
-    </div>
+  <select id="reciterSelect">
+    <option value="mishary">Mishary Rashid Alafasy</option>
+    <option value="maher">Maher Al-Muaiqly</option>
+  </select>
 
-    <audio id="audio" preload="metadata"></audio>
+  <label for="surahSelect">Surah</label>
 
-    <div class="progress">
-      <input
-        id="seek"
-        type="range"
-        min="0"
-        max="100"
-        value="0"
-      >
+  <select id="surahSelect">
+    <option>Loading...</option>
+  </select>
 
-      <div class="times">
-        <span id="current">0:00</span>
-        <span id="duration">0:00</span>
-      </div>
-    </div>
+  <div class="surah" id="surahTitle">Select a Surah</div>
 
-    <div class="controls">
-      <button id="prev">‹</button>
+  <audio id="audio" preload="metadata"></audio>
 
-      <button id="play" class="play">▶</button>
+  <input id="seek" type="range" min="0" max="100" value="0">
 
-      <button id="next">›</button>
-    </div>
+  <div class="times">
+    <span id="current">0:00</span>
+    <span id="duration">0:00</span>
+  </div>
 
-    <div class="status" id="status">
-      Loading...
-    </div>
-<div class="watermark">TajwidHub</div>
-  </main>
+  <div class="controls">
+    <button id="prev" aria-label="Previous">‹</button>
+    <button id="play" class="play" aria-label="Play">▶</button>
+    <button id="next" aria-label="Next">›</button>
+  </div>
+
+  <div class="status" id="status">Loading...</div>
+
+  <div class="watermark">TajwidHub</div>
+
+</main>
 
 <script>
 
 const audio = document.getElementById("audio");
 const select = document.getElementById("surahSelect");
+const reciterSelect = document.getElementById("reciterSelect");
+const reciterName = document.getElementById("reciterName");
 const title = document.getElementById("surahTitle");
 const play = document.getElementById("play");
 const prev = document.getElementById("prev");
@@ -196,19 +204,30 @@ const status = document.getElementById("status");
 
 let surahs = {};
 let currentSurah = 1;
+let reciter = "mishary";
 
-function formatTime(seconds) {
-  if (!Number.isFinite(seconds)) return "0:00";
+let maherData = null;
+let maherPlaylist = [];
+let maherIndex = 0;
+
+function formatTime(seconds){
+
+  if(!Number.isFinite(seconds)) return "0:00";
 
   const minutes = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
 
-  return `${minutes}:${String(secs).padStart(2, "0")}`;
+  return `${minutes}:${String(secs).padStart(2,"0")}`;
 }
 
-async function loadSurahs() {
 
-  try {
+/* -------------------------
+   LOAD SURAH LIST
+------------------------- */
+
+async function loadSurahs(){
+
+  try{
 
     const response = await fetch("surah.json");
     surahs = await response.json();
@@ -226,26 +245,30 @@ async function loadSurahs() {
 
     });
 
-    status.textContent = "Ready";
-
     loadSurah(1);
 
-  } catch (error) {
+  }catch(error){
 
     console.error(error);
     status.textContent = "Unable to load Surah data";
 
   }
-
 }
 
-function loadSurah(number) {
+
+/* -------------------------
+   MISHARY
+------------------------- */
+
+function loadSurah(number){
 
   currentSurah = Number(number);
 
   const data = surahs[currentSurah];
 
-  if (!data) return;
+  if(!data) return;
+
+  audio.pause();
 
   audio.src = data.audio_url;
 
@@ -261,92 +284,354 @@ function loadSurah(number) {
 
   status.textContent = "Ready";
 
+  play.textContent = "▶";
 }
+
+
+/* -------------------------
+   MAHER DATA
+------------------------- */
+
+async function loadMaherData(){
+
+  if(maherData) return true;
+
+  try{
+
+    const response =
+      await fetch("reciters/maher/ayah.json");
+
+    maherData = await response.json();
+
+    return true;
+
+  }catch(error){
+
+    console.error(error);
+
+    status.textContent =
+      "Unable to load Maher data";
+
+    return false;
+  }
+}
+
+
+/* -------------------------
+   MAHER SURAH
+------------------------- */
+
+async function loadMaher(number){
+
+  const loaded = await loadMaherData();
+
+  if(!loaded) return;
+
+  audio.pause();
+
+  currentSurah = Number(number);
+
+  maherPlaylist = Object.keys(maherData)
+    .filter(key => key.startsWith(`${currentSurah}:`))
+    .sort((a,b) =>
+      Number(a.split(":")[1]) -
+      Number(b.split(":")[1])
+    );
+
+  if(!maherPlaylist.length){
+
+    status.textContent =
+      "Maher audio unavailable";
+
+    return;
+  }
+
+  maherIndex = 0;
+
+  select.value = currentSurah;
+
+  title.textContent =
+    `Surah ${currentSurah}`;
+
+  loadMaherAyah(false);
+}
+
+
+/* -------------------------
+   MAHER AYAH
+------------------------- */
+
+function loadMaherAyah(autoPlay){
+
+  const key = maherPlaylist[maherIndex];
+
+  const ayah = maherData[key];
+
+  if(!ayah || !ayah.audio_url) return;
+
+  audio.pause();
+
+  audio.src = ayah.audio_url;
+
+  seek.value = 0;
+
+  current.textContent = "0:00";
+
+  duration.textContent =
+    formatTime(ayah.duration);
+
+  status.textContent =
+    `Maher Al-Muaiqly • Ayah ${key.split(":")[1]}`;
+
+  play.textContent = "▶";
+
+  if(autoPlay){
+
+    audio.play()
+      .then(() => {
+
+        play.textContent = "Ⅱ";
+
+      })
+      .catch(error => {
+
+        console.error(error);
+
+        play.textContent = "▶";
+
+        status.textContent =
+          "Press play to start audio";
+
+      });
+
+  }
+}
+
+
+/* -------------------------
+   PLAY / PAUSE
+------------------------- */
 
 play.addEventListener("click", async () => {
 
-  if (audio.paused) {
+  if(audio.paused){
 
-    try {
+    try{
 
       await audio.play();
+
       play.textContent = "Ⅱ";
-      status.textContent = "Playing";
 
-    } catch (error) {
+      status.textContent =
+        reciter === "maher"
+        ? `Maher Al-Muaiqly • Ayah ${maherIndex + 1}`
+        : "Playing";
 
-      status.textContent = "Playback blocked";
+    }catch(error){
+
+      console.error(error);
+
+      status.textContent =
+        "Unable to play audio";
 
     }
 
-  } else {
+  }else{
 
     audio.pause();
+
     play.textContent = "▶";
+
     status.textContent = "Paused";
+  }
+
+});
+
+
+/* -------------------------
+   RECITER SWITCH
+------------------------- */
+
+reciterSelect.addEventListener("change", () => {
+
+  reciter = reciterSelect.value;
+
+  audio.pause();
+
+  play.textContent = "▶";
+
+  if(reciter === "mishary"){
+
+    reciterName.textContent =
+      "Mishary Rashid Alafasy";
+
+    loadSurah(currentSurah);
+
+  }else{
+
+    reciterName.textContent =
+      "Maher Al-Muaiqly";
+
+    loadMaher(currentSurah);
 
   }
 
 });
 
-prev.addEventListener("click", () => {
 
-  if (currentSurah > 1) {
-    loadSurah(currentSurah - 1);
-  }
-
-});
-
-next.addEventListener("click", () => {
-
-  if (currentSurah < 114) {
-    loadSurah(currentSurah + 1);
-  }
-
-});
+/* -------------------------
+   SURAH SWITCH
+------------------------- */
 
 select.addEventListener("change", () => {
 
-  loadSurah(select.value);
+  if(reciter === "mishary"){
+
+    loadSurah(select.value);
+
+  }else{
+
+    loadMaher(select.value);
+
+  }
 
 });
+
+
+/* -------------------------
+   PREVIOUS
+------------------------- */
+
+prev.addEventListener("click", () => {
+
+  if(currentSurah <= 1) return;
+
+  const number = currentSurah - 1;
+
+  if(reciter === "mishary"){
+
+    loadSurah(number);
+
+  }else{
+
+    loadMaher(number);
+
+  }
+
+});
+
+
+/* -------------------------
+   NEXT
+------------------------- */
+
+next.addEventListener("click", () => {
+
+  if(currentSurah >= 114) return;
+
+  const number = currentSurah + 1;
+
+  if(reciter === "mishary"){
+
+    loadSurah(number);
+
+  }else{
+
+    loadMaher(number);
+
+  }
+
+});
+
+
+/* -------------------------
+   PROGRESS
+------------------------- */
 
 audio.addEventListener("timeupdate", () => {
 
-  if (!audio.duration) return;
+  if(!audio.duration) return;
 
-  seek.value = (audio.currentTime / audio.duration) * 100;
+  seek.value =
+    (audio.currentTime / audio.duration) * 100;
 
-  current.textContent = formatTime(audio.currentTime);
+  current.textContent =
+    formatTime(audio.currentTime);
 
 });
+
 
 audio.addEventListener("loadedmetadata", () => {
 
-  duration.textContent = formatTime(audio.duration);
+  duration.textContent =
+    formatTime(audio.duration);
 
 });
 
+
 seek.addEventListener("input", () => {
 
-  if (!audio.duration) return;
+  if(!audio.duration) return;
 
   audio.currentTime =
     (seek.value / 100) * audio.duration;
 
 });
 
+
+/* -------------------------
+   AUDIO END
+------------------------- */
+
 audio.addEventListener("ended", () => {
 
   play.textContent = "▶";
 
-  if (currentSurah < 114) {
-    loadSurah(currentSurah + 1);
-    audio.play();
-    play.textContent = "Ⅱ";
+  if(reciter === "maher"){
+
+    maherIndex++;
+
+    if(maherIndex < maherPlaylist.length){
+
+      loadMaherAyah(true);
+
+    }else if(currentSurah < 114){
+
+      loadMaher(currentSurah + 1);
+
+      setTimeout(() => {
+
+        maherIndex = 0;
+        loadMaherAyah(true);
+
+      },300);
+
+    }
+
+  }else{
+
+    if(currentSurah < 114){
+
+      loadSurah(currentSurah + 1);
+
+      audio.play()
+        .then(() => {
+
+          play.textContent = "Ⅱ";
+
+        })
+        .catch(() => {
+
+          play.textContent = "▶";
+
+        });
+
+    }
+
   }
 
 });
+
 
 loadSurahs();
 
