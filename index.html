@@ -12,14 +12,14 @@
 
     body {
       margin: 0;
-      min-height: 100vh;
+      min-height: auto;
       font-family: system-ui, sans-serif;
       background: #080b12;
       color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 10px;
     }
 
     .player {
@@ -119,6 +119,14 @@
       font-size: 12px;
       opacity: .5;
     }
+.watermark {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: .28;
+  font-weight: 600;
+}
   </style>
 </head>
 
@@ -126,12 +134,12 @@
 
   <main class="player">
 
-    <div class="label">Quran Recitation</div>
+    <div class="label">Full Surah Streaming</div>
 
-    <h1>Mishary Rashid Alafasy</h1>
+    <h1>Quran Recitations</h1>
 
     <div class="reciter">
-      Full Surah Streaming
+      Mishary Rashid Alafasy
     </div>
 
     <select id="surahSelect">
@@ -170,7 +178,7 @@
     <div class="status" id="status">
       Loading...
     </div>
-
+<div class="watermark">TajwidHub</div>
   </main>
 
 <script>
