@@ -136,6 +136,282 @@ button:active{
   font-weight:600;
   opacity:.25;
 }
+/* ===== TAJWIDHUB EMERALD GLASS THEME ===== */
+
+html,
+body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(96, 150, 108, .22), transparent 35%),
+    radial-gradient(circle at 85% 90%, rgba(212, 177, 91, .14), transparent 35%),
+    linear-gradient(145deg, #071b14 0%, #0d3024 48%, #071710 100%);
+}
+
+body {
+  min-height: 100vh;
+  padding: 10px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 30%),
+    linear-gradient(120deg, transparent 35%, rgba(255,255,255,.025), transparent 65%);
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  padding: 26px 24px 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(38, 91, 67, .72),
+      rgba(8, 35, 25, .82)
+    );
+
+  border: 1px solid rgba(224, 194, 112, .42);
+  border-radius: 28px;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.14),
+    inset 0 0 35px rgba(83, 139, 100, .08);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  overflow: hidden;
+}
+
+.player::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(222, 190, 100, .17);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+.player::after {
+  content: "✦";
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(225, 194, 105, .75);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.label {
+  text-align: center;
+  color: #dfc477;
+  font-size: 10px;
+  letter-spacing: 3.5px;
+  font-weight: 700;
+  opacity: .9;
+}
+
+h1 {
+  margin: 7px 0 3px;
+  text-align: center;
+  color: #f5ecd2;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(27px, 7vw, 38px);
+  letter-spacing: -.5px;
+  text-shadow: 0 3px 20px rgba(0,0,0,.35);
+}
+
+.reciter {
+  text-align: center;
+  color: #d8e4d6;
+  font-size: 13px;
+  opacity: .8;
+  margin-bottom: 21px;
+}
+
+label {
+  color: #d9c27b;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  opacity: .9;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 100%;
+  padding: 13px 40px 13px 15px;
+
+  color: #f3f0df;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(42, 100, 73, .75),
+      rgba(10, 42, 29, .82)
+    );
+
+  border: 1px solid rgba(175, 210, 178, .25);
+  border-radius: 14px;
+
+  font-size: 14px;
+  outline: none;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 7px 20px rgba(0,0,0,.15);
+}
+
+select:focus {
+  border-color: rgba(222, 194, 112, .7);
+  box-shadow:
+    0 0 0 2px rgba(222,194,112,.08),
+    0 7px 25px rgba(0,0,0,.2);
+}
+
+.surah {
+  margin-top: 22px;
+  margin-bottom: 11px;
+
+  text-align: center;
+
+  color: #f0dfad;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 600;
+
+  text-shadow: 0 2px 15px rgba(0,0,0,.3);
+}
+
+input[type=range] {
+  height: 5px;
+  cursor: pointer;
+  accent-color: #d8b961;
+}
+
+.times {
+  color: #d8dfd4;
+  opacity: .65;
+}
+
+.controls {
+  gap: 20px;
+  margin-top: 21px;
+}
+
+button {
+  width: 48px;
+  height: 48px;
+
+  color: #eee9d8;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(42, 100, 73, .9),
+      rgba(8, 38, 26, .95)
+    );
+
+  border: 1px solid rgba(210, 185, 101, .35);
+
+  box-shadow:
+    0 9px 25px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.1);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    border-color .15s ease;
+}
+
+button:hover {
+  border-color: rgba(224, 194, 112, .7);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.3),
+    0 0 18px rgba(211,181,91,.12);
+}
+
+button.play {
+  width: 66px;
+  height: 66px;
+
+  color: #0b281c;
+
+  background:
+    radial-gradient(
+      circle at 35% 25%,
+      #fff6d5 0%,
+      #e3c66e 38%,
+      #b18a35 100%
+    );
+
+  border: 2px solid rgba(255,239,175,.85);
+
+  box-shadow:
+    0 0 0 5px rgba(207,174,79,.10),
+    0 12px 35px rgba(0,0,0,.35),
+    0 0 28px rgba(220,187,83,.18);
+}
+
+button.play:active {
+  transform: scale(.92);
+}
+
+.status {
+  margin: 15px auto 0;
+  max-width: 310px;
+  padding: 8px 14px;
+
+  color: #bce5bd;
+
+  background: rgba(21, 72, 49, .48);
+  border: 1px solid rgba(122, 187, 135, .2);
+  border-radius: 30px;
+
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.watermark {
+  margin-top: 15px;
+
+  color: #d7bd70;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  font-weight: 700;
+
+  opacity: .58;
+}
+
+@media (max-width: 420px) {
+
+  body {
+    padding: 6px;
+  }
+
+  .player {
+    padding: 22px 17px 14px;
+    border-radius: 23px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .controls {
+    margin-top: 17px;
+  }
+}
 </style>
 </head>
 
@@ -148,7 +424,7 @@ button:active{
   <h1>Quran Recitation</h1>
 
   <div class="reciter" id="reciterName">
-    Mishary Rashid Alafasy
+    Peaceful Quran Recitation
   </div>
 
   <label for="reciterSelect">Reciter</label>
