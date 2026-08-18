@@ -3,10 +3,346 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quran Recitation</title>
+  <title>Quran Recitation — Mishary Rashid Alafasy</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, sans-serif;
+      background: #080b12;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .player {
+      width: 100%;
+      max-width: 520px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px;
+      background: rgba(20,24,34,.92);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+
+    .label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: .55;
+    }
+
+    h1 {
+      margin: 8px 0 4px;
+      font-size: 28px;
+    }
+
+    .reciter {
+      opacity: .65;
+      margin-bottom: 25px;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: #111722;
+      color: white;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .surah {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .progress {
+      width: 100%;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: #fff;
+    }
+
+    .times {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      opacity: .55;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    button {
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 50%;
+      background: #202735;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    button.play {
+      width: 68px;
+      height: 68px;
+      font-size: 25px;
+      background: white;
+      color: #080b12;
+    }
+
+    button:active {
+      transform: scale(.94);
+    }
+
+    .status {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: .5;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Quran Recitation</h1>
-  <p>By Mishary Rashid Alafasy</p>
+
+  <main class="player">
+
+    <div class="label">Quran Recitation</div>
+
+    <h1>Mishary Rashid Alafasy</h1>
+
+    <div class="reciter">
+      Full Surah Streaming
+    </div>
+
+    <select id="surahSelect">
+      <option>Loading Surahs...</option>
+    </select>
+
+    <div class="surah" id="surahTitle">
+      Select a Surah
+    </div>
+
+    <audio id="audio" preload="metadata"></audio>
+
+    <div class="progress">
+      <input
+        id="seek"
+        type="range"
+        min="0"
+        max="100"
+        value="0"
+      >
+
+      <div class="times">
+        <span id="current">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="prev">‹</button>
+
+      <button id="play" class="play">▶</button>
+
+      <button id="next">›</button>
+    </div>
+
+    <div class="status" id="status">
+      Loading...
+    </div>
+
+  </main>
+
+<script>
+
+const audio = document.getElementById("audio");
+const select = document.getElementById("surahSelect");
+const title = document.getElementById("surahTitle");
+const play = document.getElementById("play");
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+const seek = document.getElementById("seek");
+const current = document.getElementById("current");
+const duration = document.getElementById("duration");
+const status = document.getElementById("status");
+
+let surahs = {};
+let currentSurah = 1;
+
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds)) return "0:00";
+
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+
+  return `${minutes}:${String(secs).padStart(2, "0")}`;
+}
+
+async function loadSurahs() {
+
+  try {
+
+    const response = await fetch("surah.json");
+    surahs = await response.json();
+
+    select.innerHTML = "";
+
+    Object.keys(surahs).forEach(number => {
+
+      const option = document.createElement("option");
+
+      option.value = number;
+      option.textContent = `Surah ${number}`;
+
+      select.appendChild(option);
+
+    });
+
+    status.textContent = "Ready";
+
+    loadSurah(1);
+
+  } catch (error) {
+
+    console.error(error);
+    status.textContent = "Unable to load Surah data";
+
+  }
+
+}
+
+function loadSurah(number) {
+
+  currentSurah = Number(number);
+
+  const data = surahs[currentSurah];
+
+  if (!data) return;
+
+  audio.src = data.audio_url;
+
+  title.textContent = `Surah ${currentSurah}`;
+
+  select.value = currentSurah;
+
+  seek.value = 0;
+
+  current.textContent = "0:00";
+
+  duration.textContent = formatTime(data.duration);
+
+  status.textContent = "Ready";
+
+}
+
+play.addEventListener("click", async () => {
+
+  if (audio.paused) {
+
+    try {
+
+      await audio.play();
+      play.textContent = "Ⅱ";
+      status.textContent = "Playing";
+
+    } catch (error) {
+
+      status.textContent = "Playback blocked";
+
+    }
+
+  } else {
+
+    audio.pause();
+    play.textContent = "▶";
+    status.textContent = "Paused";
+
+  }
+
+});
+
+prev.addEventListener("click", () => {
+
+  if (currentSurah > 1) {
+    loadSurah(currentSurah - 1);
+  }
+
+});
+
+next.addEventListener("click", () => {
+
+  if (currentSurah < 114) {
+    loadSurah(currentSurah + 1);
+  }
+
+});
+
+select.addEventListener("change", () => {
+
+  loadSurah(select.value);
+
+});
+
+audio.addEventListener("timeupdate", () => {
+
+  if (!audio.duration) return;
+
+  seek.value = (audio.currentTime / audio.duration) * 100;
+
+  current.textContent = formatTime(audio.currentTime);
+
+});
+
+audio.addEventListener("loadedmetadata", () => {
+
+  duration.textContent = formatTime(audio.duration);
+
+});
+
+seek.addEventListener("input", () => {
+
+  if (!audio.duration) return;
+
+  audio.currentTime =
+    (seek.value / 100) * audio.duration;
+
+});
+
+audio.addEventListener("ended", () => {
+
+  play.textContent = "▶";
+
+  if (currentSurah < 114) {
+    loadSurah(currentSurah + 1);
+    audio.play();
+    play.textContent = "Ⅱ";
+  }
+
+});
+
+loadSurahs();
+
+</script>
+
 </body>
 </html>
